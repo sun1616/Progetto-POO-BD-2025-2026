@@ -1,0 +1,37 @@
+# === Maven Build Outputs ===
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# === Language Specifics ===
+.kotlin
+
+# === IntelliJ IDEA ===
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# === Eclipse ===
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# === NetBeans ===
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# === VS Code ===
+.vscode/
+
+# === OS Temporary Files ===
+.DS_Store
+Thumbs.db
+Log.log
