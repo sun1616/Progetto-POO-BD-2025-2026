@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict uVpkVmBtfqPygTbaYNRXA3fQKENsqdGVucVer010ifYPE6IG7faAujID11L7jPn
+\restrict Dwa0jw3v7EfCrOpl7Y9CUW0g9ZHJoQi4JGlQvapbx2NxgD9Y2iJRZlvF9eORHLI
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
 
--- Started on 2026-07-04 16:35:32 CEST
+-- Started on 2026-07-06 21:45:10 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET row_security = off;
 
 --
 -- TOC entry 223 (class 1255 OID 16441)
--- Name: update_numero_iscritti(); Type: FUNCTION; Schema: public; Owner: -
+-- Name: update_numero_iscritti(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
 CREATE FUNCTION public.update_numero_iscritti() RETURNS trigger
@@ -44,13 +44,15 @@ END;
 $$;
 
 
+ALTER FUNCTION public.update_numero_iscritti() OWNER TO postgres;
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
 -- TOC entry 219 (class 1259 OID 16403)
--- Name: account; Type: TABLE; Schema: public; Owner: -
+-- Name: account; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.account (
@@ -64,9 +66,11 @@ CREATE TABLE public.account (
 );
 
 
+ALTER TABLE public.account OWNER TO postgres;
+
 --
 -- TOC entry 222 (class 1259 OID 16464)
--- Name: recensione; Type: TABLE; Schema: public; Owner: -
+-- Name: recensione; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.recensione (
@@ -78,9 +82,11 @@ CREATE TABLE public.recensione (
 );
 
 
+ALTER TABLE public.recensione OWNER TO postgres;
+
 --
 -- TOC entry 220 (class 1259 OID 16417)
--- Name: subscription; Type: TABLE; Schema: public; Owner: -
+-- Name: subscription; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.subscription (
@@ -89,9 +95,11 @@ CREATE TABLE public.subscription (
 );
 
 
+ALTER TABLE public.subscription OWNER TO postgres;
+
 --
 -- TOC entry 221 (class 1259 OID 16443)
--- Name: video; Type: TABLE; Schema: public; Owner: -
+-- Name: video; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.video (
@@ -106,28 +114,29 @@ CREATE TABLE public.video (
 );
 
 
+ALTER TABLE public.video OWNER TO postgres;
+
 --
 -- TOC entry 3849 (class 0 OID 16403)
 -- Dependencies: 219
--- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.account (id_account, nome, email, password, numero_iscritti, numero_video, numero_streaming) FROM stdin;
+ACC007	33	33@	AA	0	0	0
+ACC005	Alessandro Marino	alessandro.m@example.com	Admin4321	0	0	0
+ACC006	BB1	22@	AA	0	0	0
 ACC003	Luca Verdi	luca.verdi@example.com	Mysecretpwd	1	0	0
 ACC001	Marco Rossi	marco.rossi@example.com	Pass1234	0	0	0
 ACC002	Giulia Bianchi	giulia.b@example.com	Secure987	1	0	0
 ACC004	Sofia Esposito	sofia.e@example.com	Password2026	0	0	0
-ACC006	BB1	22@	AA	0	0	0
-ACC005	Alessandro Marino	alessandro.m@example.com	Admin4321	1	0	0
-ACC007	33	33@	AA	1	0	0
-ACC008	cccc	cccc@	AA	1	0	0
 \.
 
 
 --
 -- TOC entry 3852 (class 0 OID 16464)
 -- Dependencies: 222
--- Data for Name: recensione; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: recensione; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.recensione (id_recensione, id_account, id_video, descrizione, numero_like) FROM stdin;
@@ -138,7 +147,6 @@ REC006	ACC005	VID003	Il sound design è fantastico, la traccia scorre benissimo.
 REC005	ACC001	VID003	Perfetta per programmare di notte, trasmette una calma incredibile.	90
 REC013	ACC003	VID007	Che nostalgia di Tokyo! Video girato ed editato benissimo.	46
 REC001	ACC001	VID001	Spiegazione chiarissima! Ideale per chi inizia con le GUI in Java.	16
-REC032	ACC008	VID016	Inserisci la tua recensione	0
 REC002	ACC003	VID001	Finalmente un tutorial fatto bene su IntelliJ e Swing. Grazie!	25
 REC003	ACC002	VID002	Ottima guida, ho risolto i problemi con le variabili d'ambiente.	42
 REC008	ACC002	VID004	Ottimo focus sulla separazione della logica aziendale dalla persistenza.	19
@@ -162,29 +170,25 @@ REC029	ACC001	VID015	Che partita fantastica, un'intensità di gioco straordinari
 REC030	ACC003	VID015	Analisi tattica veloce ma dritta al punto. Forza Napoli sempre!	189
 REC014	ACC005	VID007	Il Giappone è una meta da sogno, aspetto il giorno 2!	42
 REC019	ACC003	VID010	Prestazioni incredibili con il Ray Tracing attivo, ma il prezzo è alto.	95
-REC033	ACC008	VID016	Inserisci la tua recensione	0
 \.
 
 
 --
 -- TOC entry 3850 (class 0 OID 16417)
 -- Dependencies: 220
--- Data for Name: subscription; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: subscription; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.subscription (follower_id, following_id) FROM stdin;
 ACC001	ACC002
 ACC004	ACC003
-ACC007	ACC005
-ACC007	ACC007
-ACC008	ACC008
 \.
 
 
 --
 -- TOC entry 3851 (class 0 OID 16443)
 -- Dependencies: 221
--- Data for Name: video; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: video; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.video (id_video, id_account, titolo, descrizione, tipo, numero_like, numero_visual, durata_secondi) FROM stdin;
@@ -200,16 +204,15 @@ VID006	ACC004	🍳 Cucinare la Carbonara Perfetta	Diciamoci la verità: preparar
 VID009	ACC004	💪 Allenamento Full Body a Casa 20 Minuti	Non hai tempo per andare in palestra? Nessun problema! Questo allenamento Full Body di 20 minuti è studiato per farti sudare, attivare tutti i muscoli del corpo e accelerare il metabolismo, il tutto direttamente nel salotto di casa tua e senza alcun attrezzo.	Sport	870	24508	2400
 VID011	ACC003	⚡ Database 10x Più Veloce! Trucchi di Ottimizzazione SQL	La tua applicazione si blocca a causa di caricamenti infiniti? Molto spesso il colpevole è una query SQL lenta o scritta male. In questo video pratico vedremo come individuare i colli di bottiglia nel tuo database PostgreSQL in pochi click e come velocizzare i tempi di caricamento di oltre X10!	Tutorial	10000	23330	22321
 VID007	ACC002	✈️ Vlog Viaggio in Giappone - Giorno 1	Il sogno finalmente si avvera! Inizia ufficialmente il nostro viaggio nel Paese del Sol Levante. In questo primo giorno atterriamo a Tokyo e veniamo subito travolti dall'incredibile energia della metropoli più grande del mondo.	Vlog	1100	31211	2000
-VID014	ACC006	⚙️ La Statica e la Struttura della Basilica della Santa Croce	Come ha fatto Filippo Brunelleschi a costruire la cupola in muratura più grande del mondo senza usare impalcature tradizionali di supporto? Scopriamo i misteri geometrici e i segreti ingegneristici nascosti tra le mura della Struttura della Basilica della Santa Croce	Vlog	12112	10000	12225
+VID014	ACC006	⚙️ La Statica e la Struttura della Basilica della Santa Croce	Come ha fatto Filippo Brunelleschi a costruire la cupola in muratura più grande del mondo senza usare impalcature tradizionali di supporto? Scopriamo i misteri geometrici e i segreti ingegneristici nascosti tra le mura della Struttura della Basilica della Santa Croce	Vlog	12112	10002	12225
 VID015	ACC004	⚽ Napoli: Highlights e Gol! 	Rivivi le emozioni del match del Napoli con gli highlights più spettacolari! Non solo gol e parate, ma un’analisi rapida dei movimenti chiave che hanno deciso la partita. Sei pronto a scoprire perché questa vittoria è stata fondamentale?	Sport	12540	11123	33355
 VID013	ACC004	🍕 Pizza Napoletana a Casa: La Scienza dell'Impasto Perfetto	Fare una pizza napoletana a casa, morbida e leggera come in pizzeria, sembra impossibile con un forno normale. Oggi scopriremo i segreti scientifici dell'idratazione e dell'impasto perfetto per ottenere una cottura da veri professionisti nel forno della tua cucina!	Cucina	12131	4556	44454
-VID016	ACC008	a	a	a	0	1	1
 \.
 
 
 --
 -- TOC entry 3689 (class 2606 OID 16416)
--- Name: account Account_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: account Account_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.account
@@ -218,7 +221,7 @@ ALTER TABLE ONLY public.account
 
 --
 -- TOC entry 3695 (class 2606 OID 16473)
--- Name: recensione recensione_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: recensione recensione_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.recensione
@@ -227,7 +230,7 @@ ALTER TABLE ONLY public.recensione
 
 --
 -- TOC entry 3691 (class 2606 OID 16425)
--- Name: subscription subscription_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: subscription subscription_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.subscription
@@ -236,7 +239,7 @@ ALTER TABLE ONLY public.subscription
 
 --
 -- TOC entry 3693 (class 2606 OID 16460)
--- Name: video video_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: video video_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.video
@@ -245,7 +248,7 @@ ALTER TABLE ONLY public.video
 
 --
 -- TOC entry 3701 (class 2620 OID 16442)
--- Name: subscription trigger_numero_iscritti; Type: TRIGGER; Schema: public; Owner: -
+-- Name: subscription trigger_numero_iscritti; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
 CREATE TRIGGER trigger_numero_iscritti AFTER INSERT OR DELETE ON public.subscription FOR EACH ROW EXECUTE FUNCTION public.update_numero_iscritti();
@@ -253,7 +256,7 @@ CREATE TRIGGER trigger_numero_iscritti AFTER INSERT OR DELETE ON public.subscrip
 
 --
 -- TOC entry 3699 (class 2606 OID 16476)
--- Name: recensione id_acount; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: recensione id_acount; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.recensione
@@ -262,7 +265,7 @@ ALTER TABLE ONLY public.recensione
 
 --
 -- TOC entry 3700 (class 2606 OID 16481)
--- Name: recensione id_video; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: recensione id_video; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.recensione
@@ -271,7 +274,7 @@ ALTER TABLE ONLY public.recensione
 
 --
 -- TOC entry 3696 (class 2606 OID 16426)
--- Name: subscription subscription_follower_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: subscription subscription_follower_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.subscription
@@ -280,7 +283,7 @@ ALTER TABLE ONLY public.subscription
 
 --
 -- TOC entry 3697 (class 2606 OID 16431)
--- Name: subscription subscription_following_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: subscription subscription_following_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.subscription
@@ -289,18 +292,18 @@ ALTER TABLE ONLY public.subscription
 
 --
 -- TOC entry 3698 (class 2606 OID 16453)
--- Name: video video_id_account_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: video video_id_account_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.video
     ADD CONSTRAINT video_id_account_fkey FOREIGN KEY (id_account) REFERENCES public.account(id_account) ON DELETE SET NULL;
 
 
--- Completed on 2026-07-04 16:35:32 CEST
+-- Completed on 2026-07-06 21:45:10 CEST
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict uVpkVmBtfqPygTbaYNRXA3fQKENsqdGVucVer010ifYPE6IG7faAujID11L7jPn
+\unrestrict Dwa0jw3v7EfCrOpl7Y9CUW0g9ZHJoQi4JGlQvapbx2NxgD9Y2iJRZlvF9eORHLI
 
