@@ -161,4 +161,4 @@ i dati relativi ai video e alle dirette devono rispettare i vincoli previsti dal
 L'interazione tra l'applicazione Java e il database viene gestita attraverso il pattern DAO (Data Access Object). Le operazioni di inserimento, aggiornamento e lettura dei dati vengono eseguite dalle classi AccountDAOImpl e VideoDAOImpl, mentre la connessione al database PostgreSQL è centralizzata nella classe ConnessioneDatabase, sviluppata mediante il pattern Singleton. In questo modo viene garantita una chiara separazione tra logica applicativa e gestione della persistenza dei dati.
 
 Per ulteriore informazione leggi pdf in /documentazione/documentazionefinale
-
+Per lanciare programmazione vai a gui/login.
