@@ -57,6 +57,7 @@ public class Account {
             public void actionPerformed(ActionEvent e) {
                 if (controller.checkIscrizioneSameAccount()) {
                     JOptionPane.showMessageDialog(null, "Non puoi iscrivere a te stessa!", "Error" , JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
                 try {
                     controller.addIscritti(accountSelectedId);

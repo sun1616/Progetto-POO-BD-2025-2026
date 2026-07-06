@@ -132,7 +132,7 @@ public class Recensione {
      */
     @Override
     public String toString() {
-        return  "*************************************************************\n"
+        return  "************************************************************\n"
                 + account.getNome() + "\n"
                 + descrizione + "\n"
                 + "Numero like: " + numeroLike + "\n"
