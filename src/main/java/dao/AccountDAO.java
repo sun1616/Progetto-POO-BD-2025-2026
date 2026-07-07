@@ -53,5 +53,6 @@ public interface AccountDAO {
      * @throws SQLException the sql exception
      */
     void getALLAccountsDAO(ArrayList<String> id_accounts, ArrayList<String> nomes,
-                           ArrayList<String> emails, ArrayList<String> passwords) throws SQLException;
+                           ArrayList<String> emails, ArrayList<String> passwords, ArrayList<Integer> numero_iscritti,
+                           ArrayList<Integer> numero_videos, ArrayList<Integer> numero_streaming) throws SQLException;
 }

@@ -30,6 +30,17 @@ public class Account {
         this.numero_streaming = 0;
     }
 
+    public Account(String id_account, String nome, String email, String password,
+                   int numero_iscritti, int numero_video, int numero_streaming) {
+        this.id_account = id_account;
+        this.nome = nome;
+        this.email = email;
+        this.password = password;
+        this.numero_iscritti = numero_iscritti;
+        this.numero_video = numero_video;
+        this.numero_streaming = numero_streaming;
+    }
+
     /**
      * Gets id account.
      *

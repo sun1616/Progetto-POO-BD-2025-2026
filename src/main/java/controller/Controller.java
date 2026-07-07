@@ -57,11 +57,14 @@ public class Controller {
         ArrayList<String> nome = new ArrayList<>();
         ArrayList<String> email = new ArrayList<>();
         ArrayList<String> password = new ArrayList<>();
+        ArrayList<Integer> numero_iscritti = new ArrayList<>();
+        ArrayList<Integer> numero_videos = new ArrayList<>();
+        ArrayList<Integer> numero_streaming = new ArrayList<>();
 
-        accountDAOImpl.getALLAccountsDAO(id_account, nome, email, password);
+        accountDAOImpl.getALLAccountsDAO(id_account, nome, email, password, numero_iscritti, numero_videos, numero_streaming);
 
         for (int i = 0; i < id_account.size(); i++) {
-            Account a = new Account(id_account.get(i), nome.get(i), email.get(i), password.get(i));
+            Account a = new Account(id_account.get(i), nome.get(i), email.get(i), password.get(i), numero_iscritti.get(i), numero_videos.get(i), numero_streaming.get(i));
             accounts.add(a);
         }
     }
@@ -236,7 +239,7 @@ public class Controller {
      * @return the next id_video in formato VID001 -> VID999
      */
     public String getNext_id_video() {
-        int count = videos.size();
+        int count = videos.size() + 1;
         return "VID" + String.format("%03d", count);
     }
 
@@ -275,8 +278,10 @@ public class Controller {
      * @throws SQLException the sql exception
      */
     public void aggiungiVideo(String titolo, String descrizione, String tipo, int durata_secondi) throws SQLException {
-        videos.add(new Video(this.getNext_id_video(), currentAccount.getId_account(), titolo, descrizione, tipo, durata_secondi));
         videoDAOImpl.addVideo(this.getNext_id_video(), currentAccount.getId_account(), titolo, descrizione, tipo, durata_secondi);
+        accountDAOImpl.Account_add_video(currentAccount.getId_account());
+        videos.add(new Video(this.getNext_id_video(), currentAccount.getId_account(), titolo, descrizione, tipo, durata_secondi));
+        currentAccount.aumenta_numero_video();
     }
 
     /**
@@ -517,8 +522,8 @@ public class Controller {
      * @throws SQLException               the sql exception
      */
     public void aggiungiRecensione(String descrizione) throws AccountNotFoundedException, SQLException {
-        recensioni.add(new Recensione(getNext_id_recensione(),  getCurrentVideoId(), currentAccount, descrizione));
         recensioneDAOImpl.aggiungiRecensione(getNext_id_recensione(),  getCurrentVideoId(), currentAccount.getId_account(), descrizione);
+        recensioni.add(new Recensione(getNext_id_recensione(),  getCurrentVideoId(), currentAccount, descrizione));
     }
 
     /**

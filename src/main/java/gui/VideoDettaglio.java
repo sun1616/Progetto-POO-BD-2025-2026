@@ -6,6 +6,7 @@ import Exception.AccountNotFoundedException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class VideoDettaglio {
     private JLabel titoloLabel;
@@ -39,6 +40,9 @@ public class VideoDettaglio {
         this.controller = controller;
         uploader = null;
         recensioni = null;
+
+//      URL location = getClass().getResource("/images/videoExample.jpg");
+//      videoLabel.setIcon(new ImageIcon(location));
 
         titoloLabel.setText(controller.getCurrentVideoTitolo());
         try {

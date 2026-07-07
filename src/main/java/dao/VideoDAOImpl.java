@@ -23,6 +23,12 @@ public class VideoDAOImpl implements VideoDAO {
 
         statement.executeUpdate();
 
+//        sql = "UPDATE account SET numero_video = numero_video+1 WHERE id_account=?";
+//        PreparedStatement statement2 = connection.prepareStatement(sql);
+//        statement2.setString(1, id_account);
+//        statement2.executeUpdate();
+//
+//        statement2.close();
         statement.close();
         connection.close();
     }

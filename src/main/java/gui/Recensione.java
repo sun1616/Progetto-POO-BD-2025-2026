@@ -32,7 +32,7 @@ public class Recensione {
         this.controller = controller;
         addRecensione = null;
 
-        Login.frameCreator("Recensione", 600, 500, mainPanel);
+        frame = Login.frameCreator("Recensione", 600, 500, mainPanel);
 
         try {
             controller.getAllRecensione();

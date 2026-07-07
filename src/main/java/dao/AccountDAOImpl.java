@@ -76,8 +76,9 @@ public class AccountDAOImpl implements AccountDAO{
     }
 
     @Override
-    public void getALLAccountsDAO(ArrayList<String> id_accounts, ArrayList<String> nomes,
-                                  ArrayList<String> emails, ArrayList<String> passwords) throws SQLException {
+    public void getALLAccountsDAO(ArrayList<String> id_accounts, ArrayList<String> nomes, ArrayList<String> emails,
+                                  ArrayList<String> passwords,  ArrayList<Integer> numero_iscritti, ArrayList<Integer> numero_videos,
+                                  ArrayList<Integer> numero_streaming) throws SQLException {
         String sql = "SELECT * FROM account";
         Connection connection = ConnessioneDatabase.getInstance();
         Statement statement = connection.createStatement();
@@ -87,6 +88,9 @@ public class AccountDAOImpl implements AccountDAO{
             nomes.add(resultSet.getString("nome"));
             emails.add(resultSet.getString("email"));
             passwords.add(resultSet.getString("password"));
+            numero_iscritti.add(resultSet.getInt("numero_iscritti"));
+            numero_videos.add(resultSet.getInt("numero_video"));
+            numero_streaming.add(resultSet.getInt("numero_streaming"));
         }
     }
 }

@@ -57,6 +57,7 @@
           <horizontalAlignment value="10"/>
           <horizontalTextPosition value="11"/>
           <text value="Numero streaming"/>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="7535d" class="javax.swing.JLabel" binding="numero_streamingLabel">
@@ -67,6 +68,7 @@
           <horizontalAlignment value="10"/>
           <horizontalTextPosition value="11"/>
           <text value="0"/>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="5bb71" class="javax.swing.JLabel" binding="numero_videoLabel">
